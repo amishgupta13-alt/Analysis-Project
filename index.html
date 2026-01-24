@@ -2,219 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music Store Sales Analysis | Amish Gupta</title>
+  <title>Music Store Sales Analysis</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
       background: #0f172a;
       color: #e5e7eb;
-      line-height: 1.6;
-    }
-
-    header {
-      height: 100vh;
-      background: linear-gradient(135deg, #6366f1, #22d3ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 20px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+      scroll-behavior: smooth;
     }
 
     section {
-      padding: 60px 10%;
+      padding: 80px 10%;
+      animation: fadeUp 1s ease forwards;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    h1, h2 {
       color: #38bdf8;
+      margin-bottom: 15px;
     }
 
+    p {
+      line-height: 1.7;
+      font-size: 15px;
+      color: #cbd5f5;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #0f172a);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Cards */
     .card {
       background: #020617;
       padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 15px;
+      margin-top: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(56,189,248,0.25);
+      transform: translateY(-8px);
     }
 
-    pre {
+    /* SQL Code */
+    .sql {
       background: #020617;
-      padding: 15px;
+      padding: 20px;
+      margin-top: 15px;
       border-radius: 10px;
-      overflow-x: auto;
+      font-size: 12px;
       color: #a5f3fc;
-      margin-top: 10px;
-      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    /* Dashboard Image */
+    .dashboard {
+      margin-top: 30px;
+      text-align: center;
     }
 
     .dashboard img {
       width: 100%;
+      max-width: 800px;
       border-radius: 15px;
-      margin-top: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #020617;
-      color: #94a3b8;
+    .dashboard img:hover {
+      transform: scale(1.05);
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Music Store Sales Analysis</h1>
-    <p>SQL • Power BI • Business Insights</p>
-  </div>
-</header>
+  <!-- HERO / ABOUT ME -->
+  <section class="hero">
+    <h1>Hi, I'm Amish 👋</h1>
+    <p>BBA Student | Data Analytics & Business Intelligence Enthusiast</p>
+  </section>
 
-<section>
-  <h2>👋 About Me</h2>
-  <div class="card">
-    <p>
-      Hi, I’m <b>Amish Gupta</b>, a BBA student with a strong interest in
-      <b>Business Analytics, SQL, and Data-driven decision making</b>.
-      This project demonstrates my ability to analyze real-world business
-      problems using SQL and visualize insights using Power BI.
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>🎵 Music Store Sales & Customer Analysis</h2>
-  <div class="card">
-    <p>
-      Chinook is a digital music store selling music tracks across multiple
-      countries. The goal of this project is to analyze sales data to understand
-      revenue trends, customer behavior, and music preferences.
-    </p>
-
-    <p><b>Dataset:</b> Chinook Sample Database (SQLite)</p>
-    <p><b>Tools Used:</b> SQL (SQLite), DB Browser for SQLite, Power BI</p>
-  </div>
-</section>
-
-<section>
-  <h2>📊 Analysis Performed</h2>
-  <div class="card">
-    <ul>
-      <li>Total revenue calculation</li>
-      <li>Country-wise revenue analysis</li>
-      <li>Top customers by spending</li>
-      <li>Genre popularity analysis</li>
-      <li>Artist-wise revenue analysis</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>💡 SQL Queries & Business Questions</h2>
-
-  <div class="card">
-    <b>1. What is the total revenue of the company?</b>
-    <pre>
-SELECT 
-    ROUND(SUM(total), 2) AS total_revenue
-FROM invoices;
-    </pre>
-  </div>
-
-  <div class="card">
-    <b>2. Which countries generate the most revenue?</b>
-    <pre>
-SELECT 
-    billing_country,
-    ROUND(SUM(total), 2) AS revenue
-FROM invoices
-GROUP BY billing_country
-ORDER BY revenue DESC;
-    </pre>
-  </div>
-
-  <div class="card">
-    <b>3. Who are the top 10 customers by spending?</b>
-    <pre>
-SELECT 
-    c.first_name || ' ' || c.last_name AS customer_name,
-    ROUND(SUM(i.total), 2) AS total_spent
-FROM customers c
-JOIN invoices i ON c.customer_id = i.customer_id
-GROUP BY customer_name
-ORDER BY total_spent DESC
-LIMIT 10;
-    </pre>
-  </div>
-
-  <div class="card">
-    <b>4. Which music genres are most popular?</b>
-    <pre>
-SELECT 
-    g.name AS genre,
-    COUNT(ii.invoice_line_id) AS tracks_sold
-FROM invoice_items ii
-JOIN tracks t ON ii.track_id = t.track_id
-JOIN genres g ON t.genre_id = g.genre_id
-GROUP BY genre
-ORDER BY tracks_sold DESC;
-    </pre>
-  </div>
-</section>
-
-<section>
-  <h2>✅ Outcome</h2>
-  <div class="card">
-    <p>
-      The analysis revealed that revenue is concentrated in a few countries,
-      a small number of customers contribute significantly to sales,
-      and certain genres and artists dominate customer preferences.
-    </p>
-  </div>
-</section>
-
-<section class="dashboard">
-  <h2>📈 Power BI Dashboard</h2>
-  <div class="card">
-    <p>Below is the final Power BI dashboard created using the analyzed data.</p>
+  <!-- BUSINESS PROBLEM -->
+  <section>
+    <h2>🎵 Music Store Sales & Customer Analysis</h2>
+    <div class="card">
+      <h3>Business Problem</h3>
+      <p>
+        Chinook is a digital music store selling music tracks across multiple countries.
+        The goal of this project is to analyze sales data to understand revenue trends,
+        customer behavior, and music preferences.
+      </p>
     </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 | Music Store Sales Analysis | Amish Gupta
-</footer>
+  <!-- DATASET -->
+  <section>
+    <h2>📂 Dataset</h2>
+    <div class="card">
+      <p>Chinook Sample Database (SQLite)</p>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section>
+    <h2>🛠 Tools Used</h2>
+    <div class="card">
+      <ul>
+        <li>SQL (SQLite)</li>
+        <li>DB Browser for SQLite</li>
+        <li>Power BI</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ANALYSIS -->
+  <section>
+    <h2>📊 Analysis Performed</h2>
+    <div class="card">
+      <ul>
+        <li>Total revenue calculation</li>
+        <li>Country-wise revenue analysis</li>
+        <li>Top customers by spending</li>
+        <li>Genre popularity analysis</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SQL QUERIES -->
+  <section>
+    <h2>🧠 SQL Queries Used</h2>
+
+    <div class="sql">
+      <strong>1. Total Revenue</strong><br><br>
+      SELECT ROUND(SUM(total), 2) AS total_revenue FROM invoices;
+    </div>
+
+    <div class="sql">
+      <strong>2. Revenue by Country</strong><br><br>
+      SELECT billing_country, ROUND(SUM(total), 2) AS revenue <br>
+      FROM invoices GROUP BY billing_country ORDER BY revenue DESC;
+    </div>
+
+    <div class="sql">
+      <strong>3. Top 10 Customers</strong><br><br>
+      SELECT c.first_name || ' ' || c.last_name AS customer_name, <br>
+      ROUND(SUM(i.total), 2) AS total_spent <br>
+      FROM customers c JOIN invoices i ON c.customer_id = i.customer_id <br>
+      GROUP BY customer_name ORDER BY total_spent DESC LIMIT 10;
+    </div>
+
+    <div class="sql">
+      <strong>4. Most Popular Genres</strong><br><br>
+      SELECT g.name AS genre, COUNT(ii.invoice_line_id) AS tracks_sold <br>
+      FROM invoice_items ii <br>
+      JOIN tracks t ON ii.track_id = t.track_id <br>
+      JOIN genres g ON t.genre_id = g.genre_id <br>
+      GROUP BY genre ORDER BY tracks_sold DESC;
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section>
+    <h2>✅ Project Outcome</h2>
+    <div class="card">
+      <p>
+        The analysis revealed that revenue is concentrated in a few countries,
+        a small number of customers contribute significantly to sales,
+        and certain genres dominate customer preferences.
+      </p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section>
+    <h2>📈 Power BI Dashboard</h2>
+    <div class="dashboard">
+      <p>Interactive dashboard with KPIs & slicers</p><br>
+      <!-- Replace src with your actual dashboard image -->
+      <img src="dashboard-placeholder.png" alt="Power BI Dashboard">
+    </div>
+  </section>
 
 </body>
 </html>
