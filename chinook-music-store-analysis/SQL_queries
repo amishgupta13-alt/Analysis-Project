@@ -1,13 +1,13 @@
 
 What is the TOTAL REVENUE of the company?
 SELECT 
-    ROUND(SUM(total), 2) AS total_revenue
+    ROUND(SUM(total), 2) AS Totalrevenue
 FROM invoices;
 
 
 Which COUNTRIES generate the most revenue?
 SELECT 
-    billing_country,
+    Billingcountry,
     ROUND(SUM(total), 2) AS revenue
 FROM invoices
 GROUP BY billing_country
@@ -16,21 +16,21 @@ ORDER BY revenue DESC;
 
 Who are the TOP 10 CUSTOMERS by spending?
 SELECT 
-    c.first_name || ' ' || c.last_name AS customer_name,
-    ROUND(SUM(i.total), 2) AS total_spent
+    c.Firstname || ' ' || c.Lastname AS Customer_Name,
+    ROUND(SUM(i.total), 2) AS Totalspent
 FROM customers c
-JOIN invoices i ON c.customer_id = i.customer_id
-GROUP BY customer_name
-ORDER BY total_spent DESC
+JOIN invoices i ON c.CustomerId = i.CustomerId
+GROUP BY Customer_Name
+ORDER BY Totalspent DESC
 LIMIT 10;
 
 
 Which MUSIC GENRES are most popular?
 SELECT 
     g.name AS genre,
-    COUNT(ii.invoice_line_id) AS tracks_sold
+    COUNT(InvoiceLineId) AS Track_Sold
 FROM invoice_items ii
-JOIN tracks t ON ii.track_id = t.track_id
-JOIN genres g ON t.genre_id = g.genre_id
+JOIN tracks t ON ii.TrackId = t.TrackId
+JOIN genres g ON t.GenreId = g.GenreId
 GROUP BY genre
-ORDER BY tracks_sold DESC;
+ORDER BY Track_Sold DESC;
