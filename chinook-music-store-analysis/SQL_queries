@@ -1,11 +1,11 @@
 
-What is the TOTAL REVENUE of the company?
+1. What is the TOTAL REVENUE of the company?
 SELECT 
     ROUND(SUM(total), 2) AS Totalrevenue
 FROM invoices;
 
 
-Which COUNTRIES generate the most revenue?
+2. Which COUNTRIES generate the most revenue?
 SELECT 
     Billingcountry,
     ROUND(SUM(total), 2) AS revenue
@@ -14,7 +14,7 @@ GROUP BY billing_country
 ORDER BY revenue DESC;
 
 
-Who are the TOP 10 CUSTOMERS by spending?
+3. Who are the TOP 10 CUSTOMERS by spending?
 SELECT 
     c.Firstname || ' ' || c.Lastname AS Customer_Name,
     ROUND(SUM(i.total), 2) AS Totalspent
@@ -25,7 +25,7 @@ ORDER BY Totalspent DESC
 LIMIT 10;
 
 
-Which MUSIC GENRES are most popular?
+4.Which MUSIC GENRES are most popular?
 SELECT 
     g.name AS genre,
     COUNT(InvoiceLineId) AS Track_Sold
