@@ -289,9 +289,9 @@
                 </div>
                 <div class="code-block rounded-lg p-4 overflow-x-auto shadow-xl">
 <pre class="font-mono text-sm text-gray-300">
-<span class="text-violet-400">SELECT</span> billing_country, <span class="text-cyan-300">ROUND</span>(<span class="text-cyan-300">SUM</span>(total), 2) <span class="text-violet-400">AS</span> revenue
+<span class="text-violet-400">SELECT</span> Billingcountry, <span class="text-cyan-300">ROUND</span>(<span class="text-cyan-300">SUM</span>(total), 2) <span class="text-violet-400">AS</span> revenue
 <span class="text-violet-400">FROM</span> invoices
-<span class="text-violet-400">GROUP BY</span> billing_country
+<span class="text-violet-400">GROUP BY</span> Billingcountry
 <span class="text-violet-400">ORDER BY</span> revenue <span class="text-violet-400">DESC</span>;
 </pre>
                 </div>
@@ -305,12 +305,12 @@
                 </div>
                 <div class="code-block rounded-lg p-4 overflow-x-auto shadow-xl">
 <pre class="font-mono text-sm text-gray-300">
-<span class="text-violet-400">SELECT</span> c.first_name || <span class="text-yellow-300">' '</span> || c.last_name <span class="text-violet-400">AS</span> customer_name, 
-       <span class="text-cyan-300">ROUND</span>(<span class="text-cyan-300">SUM</span>(i.total), 2) <span class="text-violet-400">AS</span> total_spent
+<span class="text-violet-400">SELECT</span>  c.Firstname || <span class="text-yellow-300">' '</span> || c.Lastname <span class="text-violet-400">AS</span> Customer_Name, 
+       <span class="text-cyan-300">ROUND</span>(<span class="text-cyan-300">SUM</span>(i.total), 2) <span class="text-violet-400">AS</span> Totalspent
 <span class="text-violet-400">FROM</span> customers c
-<span class="text-violet-400">JOIN</span> invoices i <span class="text-violet-400">ON</span> c.customer_id = i.customer_id
-<span class="text-violet-400">GROUP BY</span> customer_name
-<span class="text-violet-400">ORDER BY</span> total_spent <span class="text-violet-400">DESC</span>
+<span class="text-violet-400">JOIN</span> invoices i <span class="text-violet-400">ON</span> c.CustomerId = i.CustomerId
+<span class="text-violet-400">GROUP BY</span> Customer_Name
+<span class="text-violet-400">ORDER BY</span> Totalspent <span class="text-violet-400">DESC</span>
 <span class="text-violet-400">LIMIT</span> 10;
 </pre>
                 </div>
@@ -324,12 +324,12 @@
                 </div>
                 <div class="code-block rounded-lg p-4 overflow-x-auto shadow-xl">
 <pre class="font-mono text-sm text-gray-300">
-<span class="text-violet-400">SELECT</span> g.name <span class="text-violet-400">AS</span> genre, <span class="text-cyan-300">COUNT</span>(ii.invoice_line_id) <span class="text-violet-400">AS</span> tracks_sold
+<span class="text-violet-400">SELECT</span> g.name <span class="text-violet-400">AS</span> genre, <span class="text-cyan-300">COUNT</span>(InvoiceLineId) <span class="text-violet-400">AS</span> Track_Sold
 <span class="text-violet-400">FROM</span> invoice_items ii
-<span class="text-violet-400">JOIN</span> tracks t <span class="text-violet-400">ON</span> ii.track_id = t.track_id
-<span class="text-violet-400">JOIN</span> genres g <span class="text-violet-400">ON</span> t.genre_id = g.genre_id
+<span class="text-violet-400">JOIN</span> tracks t <span class="text-violet-400">ON</span> ii.TrackId = t.TrackId
+<span class="text-violet-400">JOIN</span> genres g <span class="text-violet-400">ON</span> t.GenreId = g.GenreId
 <span class="text-violet-400">GROUP BY</span> genre
-<span class="text-violet-400">ORDER BY</span> tracks_sold <span class="text-violet-400">DESC</span>;
+<span class="text-violet-400">ORDER BY</span> Tracks_Sold <span class="text-violet-400">DESC</span>;
 </pre>
                 </div>
             </div>
